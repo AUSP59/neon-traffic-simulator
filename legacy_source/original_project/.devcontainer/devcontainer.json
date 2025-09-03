@@ -1,0 +1,11 @@
+{
+  "name": "NeonTrafficSimulator",
+  "build": { "dockerfile": "Dockerfile", "target": "build" },
+  "workspaceFolder": "/work",
+  "remoteUser": "root",
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-vscode.cpptools", "twxs.cmake"]
+    }
+  }
+}
