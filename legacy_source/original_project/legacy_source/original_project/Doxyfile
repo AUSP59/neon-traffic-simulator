@@ -1,0 +1,8 @@
+PROJECT_NAME           = "NeonTrafficSimulator"
+PROJECT_NUMBER         = "1.0.0"
+OUTPUT_DIRECTORY       = docs/doxygen
+GENERATE_LATEX         = NO
+RECURSIVE              = YES
+INPUT                  = include src
+EXTRACT_ALL            = YES
+QUIET                  = YES

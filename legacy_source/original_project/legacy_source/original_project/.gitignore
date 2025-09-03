@@ -1,0 +1,12 @@
+build/
+dist/
+*.o
+*.obj
+*.pdb
+*.exe
+*.dll
+*.so
+*.dylib
+*.zip
+compile_commands.json
+outputs/

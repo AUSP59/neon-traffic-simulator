@@ -1,0 +1,5 @@
+Checks: >
+  -*,bugprone-*,performance-*,readability-*,modernize-*,cppcoreguidelines-*,
+  clang-analyzer-*,hicpp-*
+WarningsAsErrors: '*'
+HeaderFilterRegex: 'src/|include/'
