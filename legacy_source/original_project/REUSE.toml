@@ -1,0 +1,4 @@
+version = 1
+[meta]
+# Declare default license for files lacking headers
+license = "Apache-2.0"

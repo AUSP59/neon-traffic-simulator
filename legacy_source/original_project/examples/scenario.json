@@ -1,0 +1,9 @@
+{
+  "network": "examples/grid4/network",
+  "vehicles": "examples/grid4/vehicles.csv",
+  "lights": "examples/grid4/lights.csv",
+  "duration": 300,
+  "tick_ms": 100,
+  "router": "astar",
+  "out": "outputs"
+}

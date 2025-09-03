@@ -1,0 +1,15 @@
+name: sanitizers
+on:
+  pull_request:
+  push:
+jobs:
+  asan-ubsan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure (ASan/UBSan)
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+      - name: Build
+        run: cmake --build build -j
+      - name: Tests
+        run: ctest --test-dir build --output-on-failure || (cat build/Testing/Temporary/LastTest.log || true; exit 1) || (cat build/Testing/Temporary/LastTest.log || true; exit 1) || (cat build/Testing/Temporary/LastTest.log || true; exit 1) || (cat build/Testing/Temporary/LastTest.log || true; exit 1)

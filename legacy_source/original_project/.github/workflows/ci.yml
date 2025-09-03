@@ -1,0 +1,24 @@
+name: ci
+on:
+  push:
+  pull_request:
+jobs:
+  build-test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+      - name: Build
+        run: cmake --build build -j
+      - name: Run tests
+        run: ctest --test-dir build --output-on-failure || (cat build/Testing/Temporary/LastTest.log || true; exit 1) || (cat build/Testing/Temporary/LastTest.log || true; exit 1) || (cat build/Testing/Temporary/LastTest.log || true; exit 1) || (cat build/Testing/Temporary/LastTest.log || true; exit 1)
+  codeql:
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+    uses: github/codeql-action/.github/workflows/codeql.yml@v3

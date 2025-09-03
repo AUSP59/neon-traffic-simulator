@@ -1,0 +1,16 @@
+name: determinism
+on: [push, pull_request]
+jobs:
+  check-determinism:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+      - name: Run sample
+        run: ./build/bin/neon_traffic_cli simulate --network examples/grid4/network --vehicles examples/grid4/vehicles.csv --lights examples/grid4/lights.csv --duration 60 --tick-ms 100 --out outputs && head -n 2 outputs/metrics.csv
+      - name: Archive outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: determinism-outputs
+          path: outputs/**

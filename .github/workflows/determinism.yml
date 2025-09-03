@@ -1,0 +1,14 @@
+name: determinism
+on: [push, pull_request]
+jobs:
+  sample:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release && cmake --build build -j
+      - run: ./build/bin/neon_traffic_cli --version
+      - run: ./build/bin/neon_traffic_cli simulate --duration 1 --tick-ms 100 --out outputs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: outputs
+          path: outputs/**
